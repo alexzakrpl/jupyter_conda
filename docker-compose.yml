@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./workspace:/workspace
+      - ./notebooks:/workspace/notebooks
+      - ./data:/workspace/data
+    environment:
+      - TZ=UTC
+    tty: true
+    stdin_open: true
+
